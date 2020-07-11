@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route,Link } from "react-router-dom";
 
 import "./style.css";
 import Nav from "./nav";
@@ -18,8 +18,13 @@ import Sad from "./sad.js";
 import Romantic from "./romantic.js";
 import Tarab from "./tarab.js";
 import Rendoms from "./rendoms.js";
-class App extends Component {
-  render() {
+function App(props) {
+  const existingTokens = JSON.parse(localStorage.getItem("tokens"));
+  
+  const setTokens = (data) => {
+    localStorage.setItem("tokens", JSON.stringify(data));
+  }
+
     return (
       <Router>
         <div>
@@ -47,6 +52,5 @@ class App extends Component {
       </Router>
     );
   }
-}
 console.log(ContactUS)
 export default App;
